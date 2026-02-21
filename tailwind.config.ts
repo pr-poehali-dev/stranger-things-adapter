@@ -6,7 +6,7 @@ export default {
 		"./pages/**/*.{ts,tsx}",
 		"./components/**/*.{ts,tsx}",
 		"./app/**/*.{ts,tsx}",
-		"./src/**/*.{ts,tsx}",
+		"./src/**/*.{ts,tsx}"
 	],
 	prefix: "",
 	theme: {
@@ -18,7 +18,16 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				oswald: ['Oswald', 'sans-serif'],
+				montserrat: ['Montserrat', 'sans-serif'],
+			},
 			colors: {
+				'st-red': '#cc0000',
+				'st-glow': '#ff3333',
+				'st-dark': '#080808',
+				'st-surface': '#111111',
+				'st-card': '#161616',
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
@@ -69,6 +78,15 @@ export default {
 				sm: 'calc(var(--radius) - 4px)'
 			},
 			keyframes: {
+				'fade-in': {
+					from: { opacity: '0', transform: 'translateY(20px)' },
+					to: { opacity: '1', transform: 'translateY(0)' }
+				},
+				'flicker': {
+					'0%, 100%': { opacity: '1' },
+					'50%': { opacity: '0.7' },
+					'75%': { opacity: '0.9' },
+				},
 				'accordion-down': {
 					from: {
 						height: '0'
@@ -88,7 +106,10 @@ export default {
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'fade-in': 'fade-in 0.8s ease-out forwards',
+				'fade-in-slow': 'fade-in 1.2s ease-out forwards',
+				'flicker': 'flicker 3s ease-in-out infinite',
 			}
 		}
 	},
